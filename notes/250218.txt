@@ -1,0 +1,41 @@
+2/18/25 021825 250218
+Single-CPU Hardware vs Multi-CPU Hardware
+-       Hardware caches allow data to be shared btwn multiple processors
+-       In a single CPU, there are a hierarchy of hardware caches that generally help the processor run programs faster.
+-       Caches are small, fast memories that hold copies of popular data found in the main memory of the system.
+-       Main memory holds the data, but access to it is slower
+-       By keeping frequently accessed data in a cache, the system can make the large, slow memory appear to be a fast one
+Locality
+-       Caches are based on the notion of locality
+-       Temporal Locality
+o       If data is accessed then it is likely to be accessed again soon
+-       Spatial Locality
+o       Stored instructions stored nearby to recently executed instructions …
+Cache Coherence
+-       Multiple processors ina  single system: single shared main memory
+-       CPU1 reads addr A which contains value D: data not there
+-       Goes to main memory, retrieves it, puts a copy of the data in address A (cache)
+-       The program changes the value of D
+-       The tasks on CPU1 start and CPU2 starts its tasks
+-       The data is not in CPU2’s cache, so retrieves it from main memory --- the wrong data
+Bus Snooping
+-       Each cache pays attention to memory updates by observing the bus that connects them to main memory
+-       When a CPU then sees an update for a data item it holds in its cache, it will notice the change and either invalidate its copy or update it
+-       Write-back caches, as hinted at above, make this more complicated
+Synchronization
+-       When accessing and update shared data items across CPUs, mutual exclusion primitives (such as locks) should likely be used to guarantee scorrectness
+-       For example, a shared queue being accessed on multiple CPUs concurrently
+-       Without locks, adding or removing elements from the queue concurrently will not work as expected
+Multi-Queue Multiprocessor Scheduling
+-       Each queue will follow a particular scheduling discipline, such as round robin
+-       Each job is placed on exactly one scheduling queue
+-       Basically scheduled independently, avoiding the problems of information sharing and synchronization like in SQMS
+Migration
+
+Multiprocessor Scheduling
+-       Two basic approaches to processor allocation
+o       Static allocation, the number of processors available to each job is fixed during its entire execution
+o       Dynamic allocation, the number of processors allocated to a job may vary during execution in a way that reflects its time varying parallelism
+
+
+

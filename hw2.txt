@@ -1,0 +1,66 @@
+What are the advantages and disadvantages of busy-waiting and sleep-and-wake approaches for mutual exclusion?
+
+-
+Multiprogramming uses CPU scheduling for processes and threads in order to maximize efficiency of the CPU and efficiently distribute tasks.
+
+It's needed in order to reduce downtime and resource waste.
+-
+
+What are the differences between processes and threads?
+
+-
+A process can have one or multiple threads. A thread is a program being executed without dedicated address space, but threads from the same process share the same address space.
+-
+
+Please discuss the advantages and disadvantages of using user-level and kernel-level threads
+
+-
+
+-
+
+With a five-state process model, please explain each state and the transitions among them.
+
+
+
+
+
+Note: To respond to this question you must upload a file. You may type out the response and submit it via Word document, or hand-write it and upload it as a .pdf or .jpg.
+
+_______________________________________________________
+
+Assume that the following processes are to be executed on a uniprocessor system. Please calculate the average turnaround time and response time of these processes under the following scheduling policies. Process switch overhead can be ignored. (10 pts in total)
+
+    1.  FCFS (2 pts)
+
+    2.  Round Robin (quantum = 3 and 4, 4 pts)
+
+    3.  Shortest Job First (both preemptive and non-preemptive, 4 pts)
+
+      --------- ---------------------- -----------
+       Process   Process Arrival Time   CPU burst
+         P1               0                                      6
+         P2               1                                      2
+         P3               2                                      4
+         P4               3                                      3
+      --------- ---------------------- -----------
+
+
+
+
+What are the advantages and disadvantages of busy-waiting and sleep-and-wake approaches for mutual exclusion?
+
+
+
+Why are semaphores needed? What are the similarities and differences between a semaphore and a mutex?
+
+
+
+In the dining philosophers problem (Page 440, Section 6.1.3), explain what the does the function `test(i)` do (two roles) and how it works.
+
+
+
+
+
+
+
+

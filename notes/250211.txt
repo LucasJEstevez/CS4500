@@ -1,0 +1,95 @@
+2/11/25 021125 250211
+
+CPU Scheduling: Maximizing CPU Usage obtained with multiprogramming
+-       CPU I/O Burst Cycle – Process execution consists of a cycle of CPU execution and I/O wait
+-       CPU burst distribution
+-       “5 burst” -> 5ms
+CPU Scheduler
+-       Selects from among the processes in mem that are ready to execute, and allocates the CPU to one of them
+-       CPU scheduling decisions may take place when a process:
+o       Switches from running to waiting state
+o       Switching from running to ready state
+o       Switches from waiting to ready
+o       Terminates
+-       Scheduling under 1 and 4 is non-preemptive
+-       All other scheduling is preemptive – implications for data sharing between threads/processes
+Dispatcher
+-       A special program which comes into play after the scheduler
+-       Dispatcher module gives control of the CPU to the process selected by the scheduler; this involves:
+o       Switching context
+o       Switching to user mode
+o       Jumping to the proper location in the user program to restart that program
+-       Dispatch latency – time it takes for the dispatcher to stop one process and start another running
+Scheduling Criteria
+-       CPU utilization – keep the CPU as busy as possible
+-       Throughput - # of processes that complete their execution per time unit
+-       Turnaround time – amt of time to execute a particular process
+-       Waiting time – amount of time a process has been waiting in the ready queue
+-       Response time – amount of time it takes from when a request was submitted until the first response is produced, not output
+Scheduling Algorithm Optimiztiation Criteria
+-       Max CPU utilization
+-       Max throughput
+-       Min turnaround time
+-       Min waiting time
+-       Min response time
+CPU Scheduling may take place at
+-       Clock interrupts
+-       I/O Interrupts
+-       I/O Completion
+-       Termination
+-       Non-preemptive: Scheduling only when the current process terminates or gives up control
+
+Scheduling Goals
+-       User oriented->maximize
+o       Response time: the time that the first response is received (interactivity)
+o       Turnaround time: the time that the task finishes
+o       Unpredictability: variations in different runs
+-       System oriented -> maximize
+o       Throughput: of tasks that finish per time unit
+o       Utilization: the percentage of time the CPU is busy
+o       Fairness: avoid starvation (when one process is taking up CPU usage, the others “starve” due to lack of resources)
+First Come, First Serve (FCFS)
+-       These processes arrive at time 0
+-       Burst time indicates how long the process will take to complete
+Process Burst Time in ms
+P1      32
+P2      8
+P3      5
+
+Calculate Timing
+-       Turn-around time = Completion Time – Arrival Time
+-       Waiting time = Turnaround time – Burst time
+-       Response Time = Time process begins – Arrival time
+FCFS
+-       Examples demonstrated the average waiting time for process to be scheduled by the CPU vary depending upon the order in which they arrive
+-       Once a process has taken the entire CPU it keeps it unless the CPU is released
+o       Can be accomplished by terminating or requesting I/O
+-       Cannot be used by time-sharing systems that require CPU usage at regular intervals of time
+Shortest Job First (SJF) Scheduling
+-       The SJF algorithm considers with each proc the length of the next process’s burst
+-       The next proc w the least burst will go first
+-       If 2 procs have the same length, then FCFS will be used to det which process goes 1st
+-       Sometimes referred to as Shortest Next CPU Burst Algorithm
+-       Can be preemptive or nonpreemptive
+o       Nonpreemptive: the process using the CPU has the CPU resources until it terminates, then the next process can initiate
+o       Preemptive: if one process is using the CPU, another process can take the CPU (preempt) the first process based on some conditions
+Shortest Job First (SJF) Scheduling (Nonpreemptive)
+Process ID      Burst Time in ms
+P1      7
+P2      9
+P3      8
+P4      4
+
+P4->P1->P3->P2 (Keep in mind, shortest goes first)
+Avg waiting time 0+4+11+19=34/4=8.5ms
+
+Process ID      Arrival Time    Burst Time in ms
+P1      0       9
+P2      1       5
+P3      2       10
+P4      3       6
+
+P1->P2->P4->P1->P3 (If this doesn’t make sense, draw the timeline of arrival times/burst times)
+
+
+

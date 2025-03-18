@@ -1,0 +1,78 @@
+3/4/25 030425 250304
+
+midterm
+- multiple choice: self graded
+- round-robin problem
+
+detection with multiple resources
+
+deadlock detection
+        a deadlock can occur if no deadlock detection or avoidance algorithm is enacted
+        need an algorithm that examines the state of the system to determine if a deadlock is occurring
+        need an algorithm that can recover from deadlock
+
+detection with multiple resources of each type
+        - two vectors and two matrices: n processes, m resource types
+
+        - x: the allocation vector, representing the number of resources currently allocated to each process. it has 'n' elements (one for each process)
+        - y: the maximum vector, representing the maximum demand (maximum resources needed) of each process. it also has 'n' elements
+
+        - deadlock detection algorithm:
+                - vector comparison; x<= y means xi<=yi for 1<=i<=m
+
+
+
+        key: a completed process can release its resource to give other processes chances to acquire resources and run
+                look for a process Pi, if r[i] <= A? if so, A=A+C[i] ... (finish)
+
+nondeterministic: same inputs, different results
+deterministic: should always give the same answer for the same inputs
+
+dealing w deadlocks
+
+        just ignore the problem
+        detection and recovery
+
+recovery from deadlock (not attractive)
+
+	recovery through preemption
+		take a resource from some other process
+		depends on the nature of the resource (frequently difficult or impossible)
+	recovery through rollback
+		setup checkpoints
+		checkpoint a process periodically, resulting a sequence of checkpoint files
+		use this saved state
+		restart the process if it is found deadlocked
+
+safe state
+	a safe state can guarantee that all processes will finish
+	from an unsafe state, no such guarantee can be given
+		not guarenteed failure, just not guaranteed success
+
+safe states
+	if it is not deadlocked, and there is some scheduling order in which every process can run to completion even if all of them request their max number of resources immediately
+	10 instances of the resource exist
+
+banker's algorithm for a single resource
+	algorithm models on the way of a banker might deal with a group of customers to whom he has granted lines of credit
+		not all customers need their maximum credit line simultaneously
+		to see if a state is safe, the banker checks to see if he has enough resources to satisfy some customer
+	
+	three resource allocation states: a(safe), b(safe), c(unsafe)
+
+	the algorithm looks for a process Pi, if R[i] <= A? if so, A = A + C[i]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
